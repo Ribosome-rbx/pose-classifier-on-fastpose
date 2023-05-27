@@ -58,7 +58,7 @@ class Drawer:
         joints[:,0] = (joints[:,0] * img.shape[1])
         joints[:,1] = (joints[:,1] * img.shape[0])
         joints = joints.astype(int)
-
+        
         is_active_mask = pose_2d.get_active_joints()
 
         for bone_id in range(len(bones)):

@@ -14,8 +14,8 @@ class Pose3DInterface:
 
         os.environ['CUDA_VISIBLE_DEVICES'] = ''
 
-        with tf.gfile.GFile(protograph, "rb") as f:
-            restored_graph_def = tf.GraphDef()
+        with tf.compat.v1.gfile.GFile(protograph, "rb") as f:
+            restored_graph_def = tf.compat.v1.GraphDef()
             restored_graph_def.ParseFromString(f.read())
 
         tf.import_graph_def(
@@ -27,7 +27,7 @@ class Pose3DInterface:
 
         self.session = session
 
-        self.graph = tf.get_default_graph()
+        self.graph = tf.compat.v1.get_default_graph()
 
         self.inp = self.graph.get_tensor_by_name("serverInputs/enc_in:0")
 
