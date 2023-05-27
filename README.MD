@@ -12,3 +12,6 @@ download the parameters at :
 
 [https://bitbucket.org/hugo_bonnome/fastpose_parameters/downloads/parameters.zip](https://bitbucket.org/hugo_bonnome/fastpose_parameters/downloads/parameters.zip)
 
+# Classifier
+run KNN with ```knn.py```
+download our dataset at [pose_dataset](https://drive.google.com/drive/folders/1kRQkHDsmq4glvVc6GE5pZaotsPXpUqiD)
