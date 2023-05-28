@@ -7,6 +7,9 @@ from sys import argv
 import pickle
 import knn
 import torch
+import pyautogui
+import time
+from collections import Counter
 
 """
 Read the movie located at moviePath, perform the 2d pose annotation and display
@@ -15,6 +18,9 @@ with all parameters optional.
 Keep holding the backspace key to speed the video 30x
 """
 
+global label_pool
+label_pool = ['stand_still','stand_still','stand_still','stand_still','stand_still']
+
 def load(path):
     with open(path, 'rb') as f:
         obj = pickle.load(f)
@@ -22,6 +28,118 @@ def load(path):
 def save(path, obj):
     with open(path, 'wb') as f:
         pickle.dump(obj, f)
+
+def keyUpAll(label):
+    if label == "jump":
+        pyautogui.keyUp('j')
+
+    if label == "walk_forward":
+        pyautogui.keyUp('w')
+    if label == "walk_left":
+        pyautogui.keyUp('a')
+    if label == "walk_right":
+        pyautogui.keyUp('d')
+
+    if label == "run_forward":
+        pyautogui.keyUp('w')
+        pyautogui.keyUp('shift')
+    if label == "run_left":
+        pyautogui.keyUp('a')
+        pyautogui.keyUp('shift')
+    if label == "run_right":
+        pyautogui.keyUp('d')
+        pyautogui.keyUp('shift')
+
+    if label == "creep_forward":
+        pyautogui.keyUp('c')
+        pyautogui.keyUp('w')
+    if label == "creep_left":
+        pyautogui.keyUp('c')
+        pyautogui.keyUp('a')
+    if label == "creep_right":
+        pyautogui.keyUp('c')
+        pyautogui.keyUp('d')
+
+    if label == "dance":
+        pyautogui.press('p')
+
+
+
+def keyDownAll(label):
+    if label == "walk_forward":
+        pyautogui.keyDown('w')
+    if label == "walk_left":
+        pyautogui.keyDown('a')
+    if label == "walk_right":
+        pyautogui.keyDown('d')
+
+    if label == "run_forward":
+        pyautogui.keyDown('w')
+        pyautogui.keyDown('shift')
+    if label == "run_left":
+        pyautogui.keyDown('a')
+        pyautogui.keyDown('shift')
+    if label == "run_right":
+        pyautogui.keyDown('d')
+        pyautogui.keyDown('shift')
+
+    if label == "creep_forward":
+        pyautogui.keyDown('c')
+        pyautogui.keyDown('w')
+    if label == "creep_left":
+        pyautogui.keyDown('c')
+        pyautogui.keyDown('a')
+    if label == "creep_right":
+        pyautogui.keyDown('c')
+        pyautogui.keyDown('d')
+
+    if label == "dance":
+        pyautogui.press('p')
+        
+def most_frequent(List):
+    counter = 0
+    num = List[0]
+     
+    for i in List:
+        curr_frequency = List.count(i)
+        if(curr_frequency> counter):
+            counter = curr_frequency
+            num = i
+ 
+    return num
+ 
+def keyboard_control(label):
+    '''
+    label_names = ['creep_forward', 'creep_left', 'creep_right', \
+               'dance', 'jump', 'punch', 'run_forward', \
+               'run_left', 'run_right', 'stand_still',  \
+               'walk_forward', 'walk_left', 'walk_right']
+    '''
+    # get last control label
+    label_count = Counter(label_pool[-5:])
+    old_label, _ = label_count.most_common()[0]
+    #  get new label pool
+    label_pool.append(label)
+    # get current control label
+    label_count = Counter(label_pool[-5:])
+    new_label, _ = label_count.most_common()[0]
+
+    # keep old keyDown
+    if (old_label == new_label): return
+    # jump don't need to keyUp
+    if old_label == "jump":
+        pyautogui.keyUp('j')
+    # jump don't need to keyUp
+    if new_label == "jump":
+        pyautogui.keyDown('j')
+        return
+
+    # find new key input, reset all the other keys
+    keyUpAll(old_label)
+    # set new input
+    keyDownAll(new_label)
+
+
 
 def start(movie_path, max_persons):
 
@@ -62,6 +180,7 @@ def start(movie_path, max_persons):
                 predictions = knn.knn.predict(torch.tensor(joint_pos[-10:]).flatten().unsqueeze(0))
                 label = knn.label_names[predictions]
                 print(label, "\n")
+                keyboard_control(label)
         else:
             count += 1
 
