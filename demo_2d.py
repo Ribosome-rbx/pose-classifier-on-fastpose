@@ -176,6 +176,7 @@ def start(movie_path, max_persons):
             # body_center = curr_pos.mean(axis=0)
             # joint_pos.append(persons[0]['pose_2d'].joints.reshape(-1))
             joint_pos.append(knn.normalized_frame(curr_pos.reshape(-1)))
+            breakpoint()
             if len(joint_pos) > 10:
                 predictions = knn.knn.predict(torch.tensor(joint_pos[-10:]).flatten().unsqueeze(0))
                 label = knn.label_names[predictions]
