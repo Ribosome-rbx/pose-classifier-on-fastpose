@@ -1,5 +1,5 @@
 # Real-Time Pose Classification
-This a small pose tracking and classification pipeline, used in the motion matching project to achieve human pose control.
+This a pose tracking and classification pipeline, used in the motion matching project to achieve human pose control.
 
 ## Environment
 This pipeline is based on fastpose, which only requires few dependencies to be executed (tensorflow, pytorch, opencv, matplotlib and requets) and it's implemented under python 3.6. 
