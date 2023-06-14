@@ -43,19 +43,19 @@ Here, we provide examples on performing specific poses to achieve control:
 
 | Walk Forward           |  Walk Leftward           |  Walk Rightward  |
 | :------------------: |:------------------: |:------------------: |
-| <img align="center"  src="./resource/walk_forward.gif" width="300"> | <img align="center"  src="./resource/walk_left.gif" width="300">  | <img align="center"  src="./resource/walk_right.gif" width="300"> |
+| <img align="center"  src="./resource/walk_forward.gif" width="250"> | <img align="center"  src="./resource/walk_left.gif" width="250">  | <img align="center"  src="./resource/walk_right.gif" width="250"> |
 
 1. Run
 
 | Run Forward           |  Run Leftward           |  Run Rightward  |
 | :------------------: |:------------------: |:------------------: |
-| <img align="center"  src="./resource/run_forward.gif" width="300"> | <img align="center"  src="./resource/run_left.gif" width="300">  | <img align="center"  src="./resource/run_right.gif" width="300"> |
+| <img align="center"  src="./resource/run_forward.gif" width="250"> | <img align="center"  src="./resource/run_left.gif" width="250">  | <img align="center"  src="./resource/run_right.gif" width="250"> |
 
 3. Creep
 
 | Creep Forward           |  Creep Leftward           |  Creep Rightward  |
 | :------------------: |:------------------: |:------------------: |
-| <img align="center"  src="./resource/creep_forward.gif" width="300"> | <img align="center"  src="./resource/creep_left.gif" width="300">  | <img align="center"  src="./resource/creep_right.gif" width="300"> |
+| <img align="center"  src="./resource/creep_forward.gif" width="250"> | <img align="center"  src="./resource/creep_left.gif" width="250">  | <img align="center"  src="./resource/creep_right.gif" width="250"> |
 
 4. Other behavior
 
@@ -64,5 +64,5 @@ Here, we provide examples on performing specific poses to achieve control:
 | <img align="center"  src="./resource/standstill.gif" width="250"> | <img align="center"  src="./resource/jump.gif" width="250">  | <img align="center"  src="./resource/dance.gif" width="250"> |
 
 ## Details on Classifier
-run KNN with ```knn.py```
-download our dataset at [pose_dataset](https://drive.google.com/drive/folders/1kRQkHDsmq4glvVc6GE5pZaotsPXpUqiD)
+This pipeline uses KNN in ```knn.py``` as classifier. We also tried learning based classifier in ```mlp.py```, which is under-developed.
+
