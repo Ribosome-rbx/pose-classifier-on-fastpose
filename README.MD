@@ -61,7 +61,7 @@ Here, we provide examples on performing specific poses to achieve control:
 
 | Stand Still           |  Jump           |  Dance  |
 | :------------------: |:------------------: |:------------------: |
-| <img align="center"  src="./resource/standstill.gif" width="300"> | <img align="center"  src="./resource/jump.gif" width="300">  | <img align="center"  src="./resource/dance.gif" width="300"> |
+| <img align="center"  src="./resource/standstill.gif" width="250"> | <img align="center"  src="./resource/jump.gif" width="250">  | <img align="center"  src="./resource/dance.gif" width="250"> |
 
 ## Details on Classifier
 run KNN with ```knn.py```
