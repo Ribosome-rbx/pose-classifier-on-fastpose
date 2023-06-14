@@ -45,7 +45,7 @@ Here, we provide examples on performing specific poses to achieve control:
 | :------------------: |:------------------: |:------------------: |
 | <img align="center"  src="./resource/walk_forward.gif" width="250"> | <img align="center"  src="./resource/walk_left.gif" width="250">  | <img align="center"  src="./resource/walk_right.gif" width="250"> |
 
-1. Run
+2. Run
 
 | Run Forward           |  Run Leftward           |  Run Rightward  |
 | :------------------: |:------------------: |:------------------: |
@@ -57,7 +57,7 @@ Here, we provide examples on performing specific poses to achieve control:
 | :------------------: |:------------------: |:------------------: |
 | <img align="center"  src="./resource/creep_forward.gif" width="250"> | <img align="center"  src="./resource/creep_left.gif" width="250">  | <img align="center"  src="./resource/creep_right.gif" width="250"> |
 
-4. Other behavior
+4. Other poses
 
 | Stand Still           |  Jump           |  Dance  |
 | :------------------: |:------------------: |:------------------: |
